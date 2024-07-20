@@ -4,8 +4,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
 :root {
+  --con-color: #79bfff;
   --contrast-color: #0ba5ec;
-  --con-color: #6461fc;
+  --an-con-color: #6461fc;
   --con-dark-color: #3330cb;
   --contrast-color-light: #6a93f8;
   --main-font-color: #010101;
@@ -57,21 +58,24 @@ nav {
   list-style-type: none;
 }
 .nav-link {
-  margin: 0 1rem;
+  margin: 0 0.5rem;
+  padding: 0 0.5rem;
   height: 50%;
   position: relative;
   transition: 0.5s;
+  border-radius: 0.5rem;
 }
-/* .nav-link:hover {
-  color: var(--con-color);
-} */
+.nav-link1 {
+  background-color: #79bfff38;
+}
 .nav-link::after {
   content: "";
-  height: 0.15rem;
+  height: 0.2rem;
   width: 0%;
   background-color: var(--con-color);
   position: absolute;
   bottom: 0;
+  left: 0;
   transition: 0.3s;
 }
 .nav-link:hover::after {
@@ -145,7 +149,7 @@ nav {
   width: 54px;
   height: 1rem;
   position: absolute;
-  bottom: 18%;
+  bottom: 20%;
   display: flex;
   justify-content: space-between;
 }
@@ -187,6 +191,9 @@ nav {
 .right-content img {
   filter: brightness(100%) contrast(100%) saturate(0%);
 }
+.slide2 .vid-cont {
+  background-image: linear-gradient(110deg, #ffffff 40%, #ffffff00 100%);
+}
 
 .sponsors {
   width: 100%;
@@ -226,7 +233,7 @@ nav {
   display: grid;
   place-items: center;
   box-shadow: 0px 1px 3px 0px #1018281f;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 .left-content h1 {
   font-size: 4.5rem; /*5*/
@@ -309,4 +316,53 @@ nav {
 }
 .slide3 .left-content .read-btn {
   margin-bottom: 13.5rem;
+}
+@media (max-width: 950px) {
+  nav {
+    padding: 0 2rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .sponsors h1 {
+    margin: 0 2rem 0 0;
+  }
+  .right-content {
+    display: flex;
+    align-items: center;
+  }
+  .slider {
+    width: 56rem;
+  }
+  .slide2 video {
+    height: 42rem;
+  }
+  .slide2 h1 {
+    font-size: 4rem;
+  }
+  .sponsors {
+    padding: 0 2rem;
+  }
+  .left-content {
+    padding: 0 1rem;
+  }
+  .slide3 .right-content img {
+    height: 33rem;
+    right: 40%;
+    bottom: -4%;
+    z-index: -1;
+  }
+  .slide3 .left-content .read-btn {
+    margin-bottom: 16.5rem;
+  }
+  .slide1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 56rem;
+    overflow-y: scroll;
+  }
+  .slide1::-webkit-scrollbar {
+    display: none;
+  }
 }

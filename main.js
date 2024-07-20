@@ -1,7 +1,7 @@
 "use strict";
 let slides = document.querySelectorAll(".slide");
 let dots = document.querySelector(".dots");
-
+let navLinks = document.querySelector(".nav-links");
 let currentSlide = 1;
 let dotCounter = 1;
 slides.forEach(element => {
@@ -42,3 +42,27 @@ let obsOptions = {
 };
 const observer = new IntersectionObserver(obsCallback, obsOptions);
 observer.observe(header); */
+
+/* <------------------------------------------------> */
+//make the slides in home auto change every 5s
+/* setInterval(() => {
+  currentSlide++;
+  if (currentSlide > 3) {
+    currentSlide = 1;
+  }
+  goToSlide(currentSlide);
+  activateDot(currentSlide);
+}, 5000);
+ */
+
+// make the background of the current page colored when click on its nav-link
+navLinks.addEventListener("click", event => {
+  if (event.target.classList.contains("nav-link")) {
+    let allNavLinks = document.querySelectorAll(".nav-link");
+    allNavLinks.forEach(element => {
+      element.style.backgroundColor = "transparent";
+    });
+    event.target.style.backgroundColor = "#79bfff38";
+    console.log("colored");
+  }
+});
