@@ -44,25 +44,24 @@ const observer = new IntersectionObserver(obsCallback, obsOptions);
 observer.observe(header); */
 
 /* <------------------------------------------------> */
-//make the slides in home auto change every 5s
-/* setInterval(() => {
+//make the slides in home auto change every 10 seconds
+setInterval(() => {
   currentSlide++;
   if (currentSlide > 3) {
     currentSlide = 1;
   }
   goToSlide(currentSlide);
   activateDot(currentSlide);
-}, 5000);
- */
+}, 10000);
 
+/* <------------------------------------------------> */
 // make the background of the current page colored when click on its nav-link
 navLinks.addEventListener("click", event => {
-  if (event.target.classList.contains("nav-link")) {
+  if (event.target.closest(".nav-link")) {
     let allNavLinks = document.querySelectorAll(".nav-link");
     allNavLinks.forEach(element => {
       element.style.backgroundColor = "transparent";
     });
-    event.target.style.backgroundColor = "#79bfff38";
-    console.log("colored");
+    event.target.closest(".nav-link").style.backgroundColor = "#79bfff38";
   }
 });

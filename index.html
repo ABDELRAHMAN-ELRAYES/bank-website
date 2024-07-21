@@ -6,35 +6,40 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="all.min.css" />
     <link rel="icon" href="img/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
     <title>Saudi Bank</title>
   </head>
   <body>
     <section class="section1">
       <nav>
-        <div class="logo">
-          <img src="img/icon.png" alt="error" />
-          <h1>Saudi Bank</h1>
-        </div>
-        <ul class="nav-links">
-          <li class="nav-link nav-link1">Home</li>
-          <li class="nav-link nav-link2">Services</li>
-          <li class="nav-link nav-link3">About</li>
-          <li class="nav-link nav-link4">News</li>
-          <li class="nav-link nav-link5">Apply Now</li>
-          <li class="nav-link nav-link6">Get In Touch</li>
-        </ul>
-        <div class="login-reg">
-          <button class="btn login-btn">
-            <i class="fa-solid fa-address-card"></i><span>Login</span>
-          </button>
-          <button class="btn reg-btn">
-            <i class="fa-solid fa-wallet"></i><span>Open an Account</span>
-          </button>
-        </div>
         <div class="bars">
           <span class="bar bar1"></span>
           <span class="bar bar2"></span>
           <span class="bar bar3"></span>
+        </div>
+        <div class="logo first-logo">
+          <img src="img/icon.png" alt="error" />
+          <h1>Saudi Bank</h1>
+        </div>
+
+        <ul class="nav-links">
+          <li class="nav-link nav-link1"><a href="#"> Home </a></li>
+          <li class="nav-link nav-link2"><a href="#"> Services </a></li>
+          <li class="nav-link nav-link3"><a href="#"> About </a></li>
+          <li class="nav-link nav-link4"><a href="#"> News </a></li>
+          <li class="nav-link nav-link5"><a href="#"> Apply Now </a></li>
+          <li class="nav-link nav-link6"><a href="#"> Get In Touch </a></li>
+        </ul>
+        <div class="login-reg">
+          <button class="btn login-btn">
+            <i class="fa-solid fa-shield-check"></i><span>Login</span>
+          </button>
+          <button class="btn reg-btn">
+            <span>Open an Account</span>
+          </button>
         </div>
       </nav>
       <div class="slider">
@@ -42,8 +47,8 @@
           <div class="left-content">
             <div class="hash">#1 Personal Finance Bank</div>
             <h1>
-              Get a clear path to your <br />
-              financial goals
+              Get a <span class="highlighted">clear path</span> to your <br />
+              <span class="highlighted">financial goals</span>.
             </h1>
             <p>
               Managing your money can be a daunting task, especially when you
@@ -67,15 +72,19 @@
             </div>
           </div>
           <div class="right-content">
-            <img src="img/home-img1.webp" alt="" />
+            <img src="img/home-img1.webp" alt="error" />
+            <img
+              src="img/daily-limit-copy.webp"
+              class="daily-limit"
+              alt="error"
+            />
           </div>
         </div>
         <div class="slide slide2">
           <div class="left-content">
-            <!-- <div class="hash">#1 Personal Finance Bank</div> -->
             <h1>
-              Get a clear path to your <br />
-              financial goals
+              Get a <span class="highlighted">clear path</span> to your <br />
+              <span class="highlighted">financial goals</span>.
             </h1>
             <p>
               Managing your money can be a daunting task, especially when you
@@ -85,20 +94,6 @@
               resources, you can take control of your finances.
             </p>
             <button class="read-btn">Get Started</button>
-            <!--
-            <div class="client-comment">
-              <p>
-                “I have been using FinFlow for the past year, and it has
-                <br />completely transformed the way I manage my money.”
-              </p>
-              <div class="in-client-comment">
-                <div class="cl-img">
-                  <img src="img/home-comment.webp" alt="" />
-                </div>
-                <div class="cl-name">Nick Johnson</div>
-              </div>
-            </div>
-            -->
           </div>
           <div class="vid-cont">
             <video autoplay loop preload="auto" muted>
@@ -108,8 +103,12 @@
         </div>
         <div class="slide slide3">
           <div class="left-content">
-            <!-- <div class="hash">#1 Personal Finance Bank</div> -->
-            <h1>Safe and seamless payments for your online business.</h1>
+            <h1>
+              <span class="highlighted">Safe</span> and
+              <span class="highlighted">seamless</span>
+              <span class="highlighted">payments</span> for your online
+              business.
+            </h1>
             <p>
               At FinFlow, we understand the importance of hassle-free payment
               processing.<br />
@@ -126,7 +125,15 @@
       </div>
       <div class="dots"></div>
       <div class="sponsors">
-        <h1>Partners</h1>
+        <h1>
+          Partners
+          <span>
+            <i
+              class="fa-duotone fa-solid fa-handshake fa-fade"
+              style="--fa-primary-color: #79bfff; --fa-secondary-color: #79bfff"
+            ></i>
+          </span>
+        </h1>
         <div class="sponsor sponsor1">
           <img src="img/sponsor5.png" alt="" />
         </div>

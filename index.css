@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
   --con-color: #79bfff;
   --contrast-color: #0ba5ec;
@@ -11,7 +12,7 @@
   --contrast-color-light: #6a93f8;
   --main-font-color: #010101;
   --bg-img: #f9fafb;
-  --nav-color: #f5f5f5f5;
+  --main-bg: #f5f5f5f5;
 }
 
 * {
@@ -23,10 +24,11 @@ body {
   font-family: "Poppins";
   color: #444;
 }
+
 .section1 {
   width: 100%;
   height: 100vh;
-  background-color: #f5f5f5f5;
+  background-color: var(--main-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,13 +41,22 @@ nav,
   display: flex;
   align-items: center;
 }
+.nav-link a {
+  text-decoration: none;
+  color: #444;
+}
 .nav-links,
 .logo {
   height: 100%;
 }
-.logo h1 {
+.logo h1,
+.sponsors h1 {
+  font-family: "Roboto", "sans-serif";
+  font-weight: 800;
   font-size: 2rem;
-  font-family: "Playwrite HU", cursive;
+}
+.logo h1 {
+  letter-spacing: -0.1rem;
 }
 nav {
   height: 100px;
@@ -82,8 +93,8 @@ nav {
   width: 100%;
 }
 .logo img {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   margin-right: 0.5rem;
 }
 
@@ -107,7 +118,6 @@ nav {
   width: 8rem;
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
-  /* margin-right: 0.2rem; */
 }
 .reg-btn {
   height: 2.7rem;
@@ -115,17 +125,38 @@ nav {
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 }
+
 .reg-btn:hover,
 .login-btn,
 .read-btn:hover {
   background-color: var(--con-color);
-  color: #f5f5f5f5;
+  color: var(--main-bg);
 }
 
 .login-btn:hover,
 .reg-btn {
   color: #010101;
-  background-color: #f5f5f5f5;
+  background-color: var(--main-bg);
+}
+.bars {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  display: block;
+  background-color: #010101;
+}
+.bar2 {
+  width: 65%;
+}
+.bar3 {
+  width: 85%;
 }
 .slider {
   display: flex;
@@ -134,7 +165,7 @@ nav {
 }
 .slider,
 .slide {
-  width: 100rem;
+  width: 91rem; /* 100rem */
   height: 42rem;
   border-radius: 0.5rem;
 }
@@ -174,12 +205,27 @@ nav {
   width: fit-content;
   background-image: radial-gradient(
     at center center,
-    var(--con-color) 6%,
-    #cb38ff00 43%
+    var(--con-color) 0%,
+    #cb38ff00 60%
   );
+}
+.slide1 .right-content {
+  position: relative;
+}
+.slide1 .right-content .daily-limit {
+  width: 26rem;
+  height: 13rem;
+  position: absolute;
+  filter: none;
+  left: -18%;
+  bottom: 10%;
 }
 .slide2 {
   position: relative;
+}
+.slide2 .left-content h1 {
+  /* color: #79beff8a; */
+  color: var(--con-color);
 }
 .right-content img {
   height: 42rem;
@@ -192,7 +238,16 @@ nav {
   filter: brightness(100%) contrast(100%) saturate(0%);
 }
 .slide2 .vid-cont {
-  background-image: linear-gradient(110deg, #ffffff 40%, #ffffff00 100%);
+  position: relative;
+}
+.slide2 .vid-cont::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(110deg, var(--main-bg) 40%, #ffffff00 100%);
 }
 
 .sponsors {
@@ -202,13 +257,14 @@ nav {
   display: flex;
 }
 .sponsors h1 {
-  margin: 0 26rem 0 4.6rem;
+  margin: 0 21rem 0 10rem;
   display: flex;
   align-items: center;
-  /* font-family: "Playfair Display"; */
-
-  font-family: "Playwrite HU", cursive;
   font-size: 1.5rem;
+}
+.sponsors h1 span {
+  padding-left: 2rem;
+  font-size: 2rem;
 }
 .sponsor {
   width: 10rem;
@@ -217,7 +273,7 @@ nav {
   place-items: center;
 }
 .left-content {
-  padding: 0 5rem;
+  padding: 0 0 0 5rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -238,7 +294,7 @@ nav {
 .left-content h1 {
   font-size: 4.5rem; /*5*/
   letter-spacing: -5px;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
   line-height: 5rem;
 }
 .in-client-comment {
@@ -259,7 +315,8 @@ nav {
   margin-bottom: 0.5rem;
 }
 .cl-img {
-  background-color: #6461fc71;
+  /* background-color: #6461fc71; */
+  background-color: #79beff8a;
   width: fit-content;
   margin-right: 2rem;
 }
@@ -274,7 +331,7 @@ nav {
   border-radius: 2rem;
   border: none;
   background-color: #010101;
-  color: #f5f5f5f5;
+  color: var(--main-bg);
   font-size: 1rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -287,7 +344,7 @@ nav {
   transform: translateY(-50%);
 }
 .slide2 .left-content {
-  color: #f5f5f5f5;
+  color: var(--main-bg);
 }
 .slide2 .left-content p {
   opacity: 0.5;
@@ -303,19 +360,41 @@ nav {
   bottom: -8%;
 }
 .slide3 .left-content {
-  position: relative;
+  margin-bottom: 8rem;
 }
 .slide3 .left-content h1 {
-  position: absolute;
-  bottom: 102%;
-  width: 60rem;
+  width: 49rem;
   line-height: 5rem;
+  font-weight: 400;
 }
 .slide3 {
   align-items: flex-end;
 }
-.slide3 .left-content .read-btn {
-  margin-bottom: 13.5rem;
+.slide3 .right-content img {
+  height: 39rem;
+}
+.highlighted {
+  position: relative;
+  z-index: 1;
+  font-weight: 800;
+}
+.highlighted::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background-color: #79beff8a;
+  z-index: -1;
+  transition: 0.6s;
+  transform: skew(-15deg);
+}
+.highlighted:hover:after {
+  height: 90%;
+}
+.slide2 .highlighted::after {
+  background-color: #00000075;
 }
 @media (max-width: 950px) {
   nav {
@@ -348,8 +427,8 @@ nav {
   }
   .slide3 .right-content img {
     height: 33rem;
-    right: 40%;
-    bottom: -4%;
+    right: 25%;
+    bottom: -5%;
     z-index: -1;
   }
   .slide3 .left-content .read-btn {
@@ -363,6 +442,20 @@ nav {
     overflow-y: scroll;
   }
   .slide1::-webkit-scrollbar {
+    display: none;
+  }
+  .slide3 .left-content {
+    margin-top: 5rem;
+  }
+  .logo {
+    margin-left: 10rem;
+  }
+}
+@media (min-width: 1000px) {
+  .bars {
+    display: none;
+  }
+  .second-logo {
     display: none;
   }
 }
