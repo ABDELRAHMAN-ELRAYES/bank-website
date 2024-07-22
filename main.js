@@ -1,7 +1,13 @@
 "use strict";
 let slides = document.querySelectorAll(".slide");
 let dots = document.querySelector(".dots");
+let sectionOne = document.querySelector(".section1");
+let nav = document.querySelector("nav");
 let navLinks = document.querySelector(".nav-links");
+let bars = document.querySelector(".bars");
+let sideNav = document.querySelector(".side-nav");
+let closeSideNav = document.querySelector(".close-nav");
+let sideNavElements = sideNav.children;
 let currentSlide = 1;
 let dotCounter = 1;
 slides.forEach(element => {
@@ -30,18 +36,6 @@ dots.addEventListener("click", event => {
     activateDot(slideNum);
   }
 });
-/* let obsCallback = function (entries) {
-  let [entry] = entries;
-  if (entry.isIntersecting) nav.classList.remove('sticky-nav');
-  else nav.classList.add('sticky-nav');
-};
-let obsOptions = {
-  root: null,
-  threshold: 0,
-  rootMargin: `-${getComputedStyle(nav).height}`,
-};
-const observer = new IntersectionObserver(obsCallback, obsOptions);
-observer.observe(header); */
 
 /* <------------------------------------------------> */
 //make the slides in home auto change every 10 seconds
@@ -65,3 +59,42 @@ navLinks.addEventListener("click", event => {
     event.target.closest(".nav-link").style.backgroundColor = "#79bfff38";
   }
 });
+
+/* <------------------------------------------------> */
+// make the left side nav bar
+let hideSideNavElements = function () {
+  Array.from(sideNavElements).forEach(element => {
+    element.classList.add("deactivate");
+  });
+};
+//make the children of the side nav display
+hideSideNavElements();
+
+bars.addEventListener("click", function () {
+  sideNav.classList.add("active-side-nav");
+  Array.from(sideNavElements).forEach(element => {
+    element.classList.remove("deactivate");
+  });
+});
+closeSideNav.addEventListener("click", function () {
+  hideSideNavElements();
+  sideNav.classList.remove("active-side-nav");
+});
+
+/* <------------------------------------------------> */
+// make the background of the nav become white when it cross the first section
+
+let obsCallback = function (entries) {
+  let [entry] = entries;
+  if (entry.isIntersecting) nav.classList.remove("sticky-nav");
+  else nav.classList.add("sticky-nav");
+};
+let obsOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${getComputedStyle(nav).height}`,
+};
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+observer.observe(sectionOne);
+
+/* <------------------------------------------------> */
