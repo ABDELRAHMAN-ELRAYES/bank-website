@@ -54,9 +54,11 @@ navLinks.addEventListener("click", event => {
   if (event.target.closest(".nav-link")) {
     let allNavLinks = document.querySelectorAll(".nav-link");
     allNavLinks.forEach(element => {
-      element.style.backgroundColor = "transparent";
+      // element.style.backgroundColor = "transparent";
+      element.classList.remove("active-nav-link");
     });
-    event.target.closest(".nav-link").style.backgroundColor = "#79bfff38";
+    // event.target.closest(".nav-link").style.backgroundColor = "#79bfff38";
+    event.target.closest(".nav-link").classList.add("active-nav-link");
   }
 });
 
@@ -98,3 +100,4 @@ const observer = new IntersectionObserver(obsCallback, obsOptions);
 observer.observe(sectionOne);
 
 /* <------------------------------------------------> */
+// FX RATES
