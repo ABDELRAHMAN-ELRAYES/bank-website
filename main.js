@@ -7,6 +7,11 @@ let navLinks = document.querySelector(".nav-links");
 let bars = document.querySelector(".bars");
 let sideNav = document.querySelector(".side-nav");
 let closeSideNav = document.querySelector(".close-nav");
+let secThreeOpts = document.querySelector(".sec3-opts");
+let individualSecThreeOpt = document.querySelector(".opt-ind");
+let companySecThreeOpt = document.querySelector(".opt-com");
+let individualSecThreeFeature = document.querySelector(".sec3-feature-ind");
+let companySecThreeFeature = document.querySelector(".sec3-feature-com");
 let sideNavElements = sideNav.children;
 let currentSlide = 1;
 let dotCounter = 1;
@@ -100,4 +105,24 @@ const observer = new IntersectionObserver(obsCallback, obsOptions);
 observer.observe(sectionOne);
 
 /* <------------------------------------------------> */
-// FX RATES
+// switch between section three options ;
+
+secThreeOpts;
+individualSecThreeOpt;
+companySecThreeOpt;
+secThreeOpts.addEventListener("click", event => {
+  console.log(event.target.closest(".sec3-opt"));
+  if (event.target.closest(".opt-ind")) {
+    companySecThreeOpt.classList.remove("cli-trans-back");
+    individualSecThreeOpt.classList.add("cli-trans-back");
+    companySecThreeFeature.style.display = "none";
+    individualSecThreeFeature.style.display = "flex";
+    console.log("from ind");
+  } else if (event.target.closest(".opt-com")) {
+    individualSecThreeOpt.classList.remove("cli-trans-back");
+    companySecThreeOpt.classList.add("cli-trans-back");
+    companySecThreeFeature.style.display = "flex";
+    individualSecThreeFeature.style.display = "none";
+    console.log("from com");
+  }
+});
