@@ -13,6 +13,7 @@ let companySecThreeOpt = document.querySelector(".opt-com");
 let individualSecThreeFeature = document.querySelector(".sec3-feature-ind");
 let companySecThreeFeature = document.querySelector(".sec3-feature-com");
 let sideNavElements = sideNav.children;
+let sectionThreeFeatures = document.querySelector(".sec3-features");
 let currentSlide = 1;
 let dotCounter = 1;
 slides.forEach(element => {
@@ -107,22 +108,42 @@ observer.observe(sectionOne);
 /* <------------------------------------------------> */
 // switch between section three options ;
 
-secThreeOpts;
-individualSecThreeOpt;
-companySecThreeOpt;
+let viewInd = function () {
+  companySecThreeOpt.classList.remove("cli-trans-back");
+  individualSecThreeOpt.classList.add("cli-trans-back");
+  companySecThreeFeature.style.display = "none";
+  individualSecThreeFeature.style.display = "flex";
+};
+let viewCom = function () {
+  individualSecThreeOpt.classList.remove("cli-trans-back");
+  companySecThreeOpt.classList.add("cli-trans-back");
+  companySecThreeFeature.style.display = "flex";
+  individualSecThreeFeature.style.display = "none";
+};
+
 secThreeOpts.addEventListener("click", event => {
   console.log(event.target.closest(".sec3-opt"));
   if (event.target.closest(".opt-ind")) {
-    companySecThreeOpt.classList.remove("cli-trans-back");
-    individualSecThreeOpt.classList.add("cli-trans-back");
-    companySecThreeFeature.style.display = "none";
-    individualSecThreeFeature.style.display = "flex";
-    console.log("from ind");
+    viewInd();
   } else if (event.target.closest(".opt-com")) {
-    individualSecThreeOpt.classList.remove("cli-trans-back");
-    companySecThreeOpt.classList.add("cli-trans-back");
-    companySecThreeFeature.style.display = "flex";
-    individualSecThreeFeature.style.display = "none";
-    console.log("from com");
+    viewCom();
+  }
+});
+/* <----------------------------------------------------> */
+//make the right icon of the inner feature of section three move when mouseover
+sectionThreeFeatures.addEventListener("mouseover", function (event) {
+  if (event.target.closest(".sec3-inner-feature")) {
+    let parentDiv = event.target.closest(".sec3-inner-feature");
+    let rightIcon = parentDiv.querySelector(".ri-icon");
+    rightIcon.style.transform = "rotate(360deg)";
+    rightIcon.classList.add("cli-trans-back");
+  }
+});
+sectionThreeFeatures.addEventListener("mouseout", function (event) {
+  if (event.target.closest(".sec3-inner-feature")) {
+    let parentDiv = event.target.closest(".sec3-inner-feature");
+    let rightIcon = parentDiv.querySelector(".ri-icon");
+    rightIcon.style.transform = "rotate(0deg)";
+    rightIcon.classList.remove("cli-trans-back");
   }
 });
