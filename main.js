@@ -14,6 +14,8 @@ let individualSecThreeFeature = document.querySelector(".sec3-feature-ind");
 let companySecThreeFeature = document.querySelector(".sec3-feature-com");
 let sideNavElements = sideNav.children;
 let sectionThreeFeatures = document.querySelector(".sec3-features");
+let sectionFourSlides = document.querySelectorAll(".sec4-slide");
+let sectionFourSliderBtns = document.querySelector(".sec4-slider-btns");
 let currentSlide = 1;
 let dotCounter = 1;
 slides.forEach(element => {
@@ -45,6 +47,7 @@ dots.addEventListener("click", event => {
 
 /* <------------------------------------------------> */
 //make the slides in home auto change every 10 seconds
+
 setInterval(() => {
   currentSlide++;
   if (currentSlide > 3) {
@@ -122,7 +125,6 @@ let viewCom = function () {
 };
 
 secThreeOpts.addEventListener("click", event => {
-  console.log(event.target.closest(".sec3-opt"));
   if (event.target.closest(".opt-ind")) {
     viewInd();
   } else if (event.target.closest(".opt-com")) {
@@ -147,3 +149,37 @@ sectionThreeFeatures.addEventListener("mouseout", function (event) {
     rightIcon.classList.remove("cli-trans-back");
   }
 });
+/* <-----------------------------------------------------------------------------> */
+// make the slider of the section four
+let currentSectionFourSlide = 0;
+let sectionFourGotoSlide = function (curSlide) {
+  sectionFourSlides.forEach((slide, i) => {
+    slide.style.transform = `translateX(${(i - curSlide) * 33}rem)`;
+  });
+};
+sectionFourGotoSlide(currentSectionFourSlide);
+sectionFourSliderBtns.addEventListener("click", event => {
+  if (event.target.closest(".sec4-slider-right")) {
+    currentSectionFourSlide =
+      currentSectionFourSlide >= 7 ? 0 : currentSectionFourSlide + 1;
+    sectionFourGotoSlide(currentSectionFourSlide);
+  }
+  if (event.target.closest(".sec4-slider-left")) {
+    currentSectionFourSlide =
+      currentSectionFourSlide <= 0 ? 7 : currentSectionFourSlide - 1;
+    sectionFourGotoSlide(currentSectionFourSlide);
+  }
+});
+/* <----------------------------------------------------------------------------> */
+//add transition background for  slider buttons in section 4 home page
+sectionFourSliderBtns.addEventListener("mouseover", event => {
+  if (event.target.closest(".sec4-slider-btn")) {
+    event.target.closest(".sec4-slider-btn").classList.add("cli-trans-back");
+  }
+});
+sectionFourSliderBtns.addEventListener("mouseout", event => {
+  if (event.target.closest(".sec4-slider-btn")) {
+    event.target.closest(".sec4-slider-btn").classList.remove("cli-trans-back");
+  }
+});
+
