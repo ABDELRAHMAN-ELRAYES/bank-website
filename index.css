@@ -901,12 +901,13 @@ a {
 .sec4-slide {
   width: 30rem;
   height: 100%;
-  margin-right: 3rem;
-  background-color: skyblue;
   position: absolute;
   top: 0;
   left: 0;
   transition: var(--trans-duration);
+}
+.sec4-slide:hover i {
+  transform: rotate(360deg);
 }
 .sec4-slider-btns {
   transform: translateX(-17rem);
@@ -917,12 +918,50 @@ a {
   position: relative;
   background-color: transparent;
   z-index: 30;
-  border-bottom: 1px solid var(--con-color);
   outline: none;
 }
 .sec4-slider-left i {
   transform: rotate(-180deg);
 }
+.slide-content {
+  width: 75%;
+  height: 100%;
+  background: #ffffff;
+  position: relative;
+}
+.slide-content img {
+  width: 100%;
+  height: 22rem;
+  margin-bottom: 1rem;
+  transition: var(--trans-duration);
+}
+.slide-content p {
+  margin: 0;
+  padding: 0 1rem;
+}
+.sec4-slide-overlay {
+  transform: translate(7rem, -13rem);
+  height: 5rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-image: -webkit-linear-gradient(180deg, #139fce 0%, #0e719d 100%);
+}
+.sec4-slide-overlay h1 {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+.sec4-slide-overlay i {
+  font-size: 1.5rem;
+  transition: var(--trans-duration);
+  color: var(--con-color);
+}
+.slide-content:hover i {
+  transform: rotate(360deg);
+}
+
 @media (max-width: 950px) {
   nav {
     padding: 0 2rem;

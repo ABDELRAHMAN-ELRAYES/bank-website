@@ -154,7 +154,12 @@ sectionThreeFeatures.addEventListener("mouseout", function (event) {
 let currentSectionFourSlide = 0;
 let sectionFourGotoSlide = function (curSlide) {
   sectionFourSlides.forEach((slide, i) => {
-    slide.style.transform = `translateX(${(i - curSlide) * 33}rem)`;
+    slide.style.transform = `translateX(${(i - curSlide) * 30}rem)`;
+    if (i === currentSectionFourSlide) {
+      slide.querySelector("img").style.filter = "none";
+    } else {
+      slide.querySelector("img").style.filter = "blur(5px)";
+    }
   });
 };
 sectionFourGotoSlide(currentSectionFourSlide);
@@ -172,14 +177,21 @@ sectionFourSliderBtns.addEventListener("click", event => {
 });
 /* <----------------------------------------------------------------------------> */
 //add transition background for  slider buttons in section 4 home page
-sectionFourSliderBtns.addEventListener("mouseover", event => {
-  if (event.target.closest(".sec4-slider-btn")) {
-    event.target.closest(".sec4-slider-btn").classList.add("cli-trans-back");
+sectionFourSliderBtns.addEventListener("click", event => {
+  if (event.target.closest(".sec4-slider-right")) {
+    event.target.closest(".sec4-slider-right").classList.add("cli-trans-back");
+    document
+      .querySelector(".sec4-slider-left")
+      .classList.remove("cli-trans-back");
   }
 });
-sectionFourSliderBtns.addEventListener("mouseout", event => {
-  if (event.target.closest(".sec4-slider-btn")) {
-    event.target.closest(".sec4-slider-btn").classList.remove("cli-trans-back");
+sectionFourSliderBtns.addEventListener("click", event => {
+  if (event.target.closest(".sec4-slider-left")) {
+    event.target.closest(".sec4-slider-left").classList.add("cli-trans-back");
+    document
+      .querySelector(".sec4-slider-right")
+      .classList.remove("cli-trans-back");
   }
 });
 
+/* <------------------------------------------------------------------------------> */
