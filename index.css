@@ -1104,27 +1104,96 @@ a {
 .services-sections-content {
   width: 60rem;
   height: 25rem;
-  background-color: red;
   margin-top: 3rem;
   position: relative;
 }
 .service-section {
-  background: var(--con-color);
+  border: 1px solid var(--con-color);
+  border-radius: 0.5rem;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   position: absolute;
   top: 0;
   left: 0;
   transition: var(--trans-duration);
+  padding: 3rem 2rem;
 }
+.service-section ul li a {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 2rem 0;
+}
+.service-section ul li {
+  margin: 1rem 0;
+  border-bottom: 1px solid #7f78731e;
+}
+
 .deactivate-opc {
   opacity: 0;
   z-index: 0;
 }
+
+.service-section1 .img-container,
+.service-section1,
+.service-section1 .supply-contact {
+  display: flex;
+}
 .service-section1 {
-  background-color: red;
+  justify-content: space-between;
   z-index: 30;
 }
+.service-section1 .img-container {
+  background-image: -webkit-linear-gradient(
+    180deg,
+    #139fce 0%,
+    var(--con-color) 100%
+  );
+  height: fit-content;
+  width: 36rem;
+  justify-content: space-between;
+}
+.service-section1 .supply-contact {
+  width: 22rem;
+  height: 18.5rem;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.service-section1 .supply-contact i {
+  height: 4rem;
+  width: 4rem;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: var(--main-bg);
+  /* color: var(--con-color); */
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 30;
+}
+.service-section1 .supply-contact .circ-trans-back::after {
+  background-image: -webkit-linear-gradient(
+    180deg,
+    var(--main-bg) 0%,
+    var(--main-bg) 100%
+  );
+  z-index: 0; /* error that the icon under the pseudo code  */
+}
+.service-section1.circ-trans-back i {
+  color: var(--con-color);
+}
+.service-section1 .supply-contact .second-h1 {
+  color: var(--main-bg);
+}
+.service-section1 .img-container img {
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%, 0 50%);
+}
+.service-section1 .img-container img {
+  filter: brightness(100%) contrast(100%) saturate(0%);
+}
+/*
 .service-section2 {
   background-color: blue;
 }
@@ -1139,7 +1208,7 @@ a {
 }
 .service-section6 {
   background-color: skyblue;
-}
+} */
 @media (max-width: 950px) {
   nav {
     padding: 0 2rem;
@@ -1231,6 +1300,13 @@ a {
   .services-slider,
   .services-sections-content {
     width: 45rem;
+  }
+  .service-section1 {
+    flex-direction: column;
+  }
+  .service-section1 .img-container {
+    width: 100%;
+    margin-top: 2rem;
   }
 }
 @media (min-width: 1000px) {
