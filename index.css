@@ -5,7 +5,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
-  --con-color: #79bfff;
+  /* --con-color: #79bfff; */
+  --con-color: #0e719d;
+  --light-con-color: #139fce50;
+  --second-con-color: #139fce;
   --contrast-color: #0ba5ec;
   --an-con-color: #6461fc;
   --con-dark-color: #3330cb;
@@ -37,7 +40,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: radial-gradient(at top right, #ff743854 0%, #cb38ff00 43%);
+  /* 139fce70 */
+  /* background-image: radial-gradient(at top right, #ff743854 0%, #cb38ff00 43%); */
+  background-image: radial-gradient(
+    at bottom left,
+    #139fce70 0%,
+    #cb38ff00 43%
+  );
+
   position: relative; /* for the side nav  */
 }
 nav,
@@ -210,14 +220,18 @@ a {
 .reg-btn:hover,
 .login-btn,
 .read-btn:hover {
-  background-color: var(--con-color);
+  background-image: linear-gradient(180deg, #139fce 0%, var(--con-color) 100%);
   color: var(--main-bg);
 }
 
 .login-btn:hover,
 .reg-btn {
   color: #010101;
-  background-color: var(--main-bg);
+  background-image: linear-gradient(
+    180deg,
+    var(--main-bg) 0%,
+    var(--main-bg) 0%
+  );
 }
 .login-btn:hover {
   border: 1px solid #444;
@@ -351,6 +365,7 @@ a {
   height: 6rem;
   padding: 0 9rem;
   display: flex;
+  margin-top: 3rem;
 }
 .sponsors h1 {
   margin: 0 21rem 0 10rem;
@@ -413,7 +428,8 @@ a {
 }
 .cl-img {
   /* background-color: #6461fc71; */
-  background-color: #79beff8a;
+  /* background-color: #79beff8a; */
+  background-color: var(--light-con-color);
   width: fit-content;
   margin-right: 2rem;
 }
@@ -484,7 +500,9 @@ a {
   bottom: 0;
   width: 100%;
   height: 40%;
-  background-color: #79beff8a;
+  /* background-color: #79beff8a; */
+  background-color: #139fce70;
+
   z-index: -1;
   transition: var(--trans-duration);
   transform: skew(-15deg);
@@ -507,6 +525,7 @@ a {
   background-color: #f5f5f5f5;
   display: flex;
   justify-content: center;
+  background-image: radial-gradient(at top right, #139fce70 0%, #cb38ff00 43%);
 }
 
 .section2,
@@ -577,14 +596,15 @@ a {
 .shape-img {
   position: absolute;
   font-size: 30rem;
-  color: #79beff3b;
+  /* color: #79beff3b; */
+  color: var(--light-con-color);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .count-box {
   font-size: 2rem;
-  margin-bottom: 8rem;
+  margin-bottom: 6.5rem;
   padding: 1rem 1.5rem;
 }
 .section3 .sec-header p {
@@ -642,6 +662,7 @@ a {
   color: #f5f5f5f5;
   transform: rotate(90deg);
 }
+
 /* --------------------------------------------- */
 .section3 {
   height: fit-content;
@@ -858,10 +879,11 @@ a {
   left: 0;
   height: 100%;
   width: 20%;
-  background-color: var(--con-color);
+  /* background-color: var(--con-color); */
   border-radius: 0.25rem;
   transition: var(--trans-duration);
   transform: transition ease-in-out;
+  background-image: radial-gradient(at top center, #79bfff38 0%, #0e719d 100%);
 }
 .sec3-inner-feature:hover .line-load::after {
   width: 100%;
@@ -882,6 +904,7 @@ a {
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+  background-image: radial-gradient(at top left, #139fce70 0%, #cb38ff00 43%);
 }
 .section4 h1 {
   font-size: 3rem;
@@ -948,7 +971,11 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  background-image: -webkit-linear-gradient(180deg, #139fce 0%, #0e719d 100%);
+  background-image: -webkit-linear-gradient(
+    180deg,
+    #139fce 0%,
+    var(--con-color) 100%
+  );
 }
 .sec4-slide-overlay h1 {
   font-size: 1.5rem;
@@ -965,8 +992,154 @@ a {
 .section5 {
   height: 100vh;
   padding: 6rem 3rem;
+  background-image: radial-gradient(
+    at top right,
+    var(--light-con-color) 0%,
+    #0e719d00 100%
+  );
+}
+.section5 .sec-header p,
+.service-slide h1 {
+  color: var(--soft-text-color);
+}
+.services,
+.services-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.services-slider {
+  width: 60rem;
+  height: 12rem;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+}
+.service-slide {
+  width: 13rem;
+  height: 12rem;
+  /* border: 1px solid var(--con-color); */
+  position: absolute;
+  transition: var(--trans-duration);
+
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+/* .service-slide:hover .service-icon {
+  background-color: var(--con-color);
+} */
+.slider-content,
+.service-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-btn {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  color: var(--con-color);
+  margin: 0rem 1rem;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  padding-left: 0.7rem;
+  position: relative;
+}
+.circ-trans-back::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  transition: var(--trans-duration);
+  background-image: -webkit-linear-gradient(
+    180deg,
+    #139fce 0%,
+    var(--con-color) 100%
+  );
+  border-radius: 50%;
+  z-index: -1;
+}
+.circ-trans-back:hover::after {
+  width: 100%;
+  height: 100%;
+}
+.circ-trans-back:hover i {
+  color: var(--main-bg);
+}
+.service-btn:focus {
+  border: none;
+  outline: none;
+}
+.service-icon {
+  width: 5rem;
+  height: 5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: var(--trans-duration);
+  position: relative;
+  font-size: 2rem;
+}
+.service-slide .circ-trans-back::after {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.service-slide .service-icon i,
+.service-slide1 h1 {
+  color: var(--con-color);
+}
+.service-slide .circ-trans-back i {
+  color: var(--main-bg);
 }
 
+.service-slide h1 {
+  font-size: 1.1rem;
+  text-align: center;
+}
+.services-sections-content {
+  width: 60rem;
+  height: 25rem;
+  background-color: red;
+  margin-top: 3rem;
+  position: relative;
+}
+.service-section {
+  background: var(--con-color);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: var(--trans-duration);
+}
+.deactivate-opc {
+  opacity: 0;
+  z-index: 0;
+}
+.service-section1 {
+  background-color: red;
+  z-index: 30;
+}
+.service-section2 {
+  background-color: blue;
+}
+.service-section3 {
+  background-color: green;
+}
+.service-section4 {
+  background-color: blueviolet;
+}
+.service-section5 {
+  background-color: rosybrown;
+}
+.service-section6 {
+  background-color: skyblue;
+}
 @media (max-width: 950px) {
   nav {
     padding: 0 2rem;
@@ -1049,10 +1222,15 @@ a {
     margin-right: 0;
   }
   .sec4-slider {
-    transform: translateX(7rem);
+    transform: translateX(0rem);
+    width: 53rem;
   }
   .sec4-slider-btns {
     transform: translateX(-11rem);
+  }
+  .services-slider,
+  .services-sections-content {
+    width: 45rem;
   }
 }
 @media (min-width: 1000px) {

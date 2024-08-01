@@ -16,6 +16,13 @@ let sideNavElements = sideNav.children;
 let sectionThreeFeatures = document.querySelector(".sec3-features");
 let sectionFourSlides = document.querySelectorAll(".sec4-slide");
 let sectionFourSliderBtns = document.querySelector(".sec4-slider-btns");
+let serviceSlides = document.querySelectorAll(".service-slide");
+let rightServiceBtn = document.querySelector(".service-right");
+let leftServiceBtn = document.querySelector(".service-left");
+let servicesSlider = document.querySelector(".services-slider");
+let serviceSections = document.querySelectorAll(".service-section");
+let currentServiceSlide = 1;
+let currentSectionFourSlide = 0;
 let currentSlide = 1;
 let dotCounter = 1;
 slides.forEach(element => {
@@ -151,7 +158,7 @@ sectionThreeFeatures.addEventListener("mouseout", function (event) {
 });
 /* <-----------------------------------------------------------------------------> */
 // make the slider of the section four
-let currentSectionFourSlide = 0;
+
 let sectionFourGotoSlide = function (curSlide) {
   sectionFourSlides.forEach((slide, i) => {
     slide.style.transform = `translateX(${(i - curSlide) * 30}rem)`;
@@ -195,3 +202,60 @@ sectionFourSliderBtns.addEventListener("click", event => {
 });
 
 /* <------------------------------------------------------------------------------> */
+// section five service slider
+
+let goToServiceSlide = function (curSlide) {
+  serviceSlides.forEach((element, i) => {
+    element.style.transform = `translateX(${14 * (i + 1 - curSlide)}rem)`;
+  });
+};
+goToServiceSlide(1);
+rightServiceBtn.addEventListener("click", event => {
+  if (currentServiceSlide < serviceSlides.length - 2) {
+    currentServiceSlide++;
+  } else {
+    currentServiceSlide = 1;
+  }
+  goToServiceSlide(currentServiceSlide);
+});
+leftServiceBtn.addEventListener("click", event => {
+  if (currentServiceSlide !== 1) {
+    currentServiceSlide--;
+  } else {
+    currentServiceSlide = serviceSlides.length - 2;
+  }
+  goToServiceSlide(currentServiceSlide);
+});
+/* <-------------------------------------------------------------------------------> */
+// add a circle transition background to the service-icon when hover on its slide
+// make each slide view a section of summary of its topic on click
+
+let resetServiceIcon = function () {
+  serviceSlides.forEach(sli => {
+    sli.querySelector(".service-icon").classList.remove("circ-trans-back");
+    sli.querySelector("h1").style.color = "var(--soft-text-color)";
+  });
+};
+let viewServiceSection = function (currentServiceSection) {
+  serviceSections.forEach((sec, i) => {
+    if (i + 1 === +currentServiceSection) {
+      sec.classList.remove("deactivate-opc");
+      sec.style.zIndex = "30";
+    } else {
+      sec.classList.add("deactivate-opc");
+    }
+  });
+};
+servicesSlider.addEventListener("click", event => {
+  resetServiceIcon();
+  if (event.target.closest(".service-slide")) {
+    let serviceIconParent = event.target.closest(".service-slide");
+    let serviceIcon = serviceIconParent.querySelector(".service-icon");
+
+    serviceIcon.classList.add("circ-trans-back");
+    serviceIconParent.querySelector("h1").style.color = "var(--con-color)";
+
+    viewServiceSection(serviceIconParent.dataset.sectionNumber);
+  }
+});
+/* <-------------------------------------------------------------------------------> */
