@@ -259,3 +259,24 @@ servicesSlider.addEventListener("click", event => {
   }
 });
 /* <-------------------------------------------------------------------------------> */
+// make a transition for section 2
+let featuresShapes = document.querySelector(".features-shapes");
+featuresShapes.addEventListener("mouseover", event => {
+  if (
+    !event.target.closest(".feature-shape2") &&
+    event.target.closest(".feature-shape")
+  ) {
+    let middleElement = document.querySelector(".feature-shape2");
+    let middleElementContent = document.querySelector(".feature-content2");
+    middleElement.classList.remove("feature-shape2");
+    middleElementContent.classList.remove("feature-content2");
+  }
+});
+featuresShapes.addEventListener("mouseout", event => {
+  if (!event.target.closest(".add-feature-shape2")) {
+    let middleElement = document.querySelector(".add-feature-shape2");
+    let middleElementContent = document.querySelector(".add-feature-content2");
+    middleElement.classList.add("feature-shape2");
+    middleElementContent.classList.add("feature-content2");
+  }
+});

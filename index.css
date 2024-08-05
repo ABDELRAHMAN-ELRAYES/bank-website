@@ -7,6 +7,7 @@
 :root {
   /* --con-color: #79bfff; */
   --con-color: #0e719d;
+
   --light-con-color: #139fce50;
   --second-con-color: #139fce;
   --contrast-color: #0ba5ec;
@@ -41,12 +42,7 @@ body {
   flex-direction: column;
   align-items: center;
   /* 139fce70 */
-  /* background-image: radial-gradient(at top right, #ff743854 0%, #cb38ff00 43%); */
-  background-image: radial-gradient(
-    at bottom left,
-    #139fce70 0%,
-    #cb38ff00 43%
-  );
+  background-image: radial-gradient(at top right, #ff743854 0%, #cb38ff00 43%);
 
   position: relative; /* for the side nav  */
 }
@@ -525,7 +521,7 @@ a {
   background-color: #f5f5f5f5;
   display: flex;
   justify-content: center;
-  background-image: radial-gradient(at top right, #139fce70 0%, #cb38ff00 43%);
+  /* background-image: radial-gradient(at top right, #139fce70 0%, #cb38ff00 43%); */
 }
 
 .section2,
@@ -563,9 +559,40 @@ a {
 
 .feature-shape {
   position: relative;
-  margin: 5rem 2rem 0 2rem;
-  width: 23rem;
+  /* margin: 5rem 2rem 0 2rem; */
+  width: 28rem;
+  padding: 3rem 1rem;
   display: flex;
+}
+.feature-shape::after,
+.feature-shape::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--con-color);
+  transition: var(--trans-duration);
+  transform: skew(-15deg);
+}
+.feature-shape::after {
+  height: 2px;
+  width: 0;
+}
+.feature-shape::before {
+  height: 0;
+  width: 2px;
+}
+.feature-shape:hover::after {
+  width: 100%;
+}
+.feature-shape:hover::before {
+  height: 100%;
+}
+.feature-shape2::after {
+  width: 100%;
+}
+.feature-shape2::before {
+  height: 100%;
 }
 .feature-content {
   text-align: center;
@@ -573,6 +600,44 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 23rem;
+  justify-content: center;
+  position: relative;
+  padding: 3rem 0.3rem;
+}
+
+.feature-content::after,
+.feature-content::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--con-color);
+  transition: var(--trans-duration);
+  transform: skew(-15deg);
+}
+.feature-content::after {
+  height: 2px;
+  width: 0;
+}
+.feature-content::before {
+  height: 0;
+  width: 2px;
+}
+.feature-content:hover::after {
+  width: 100%;
+}
+.feature-content:hover::before {
+  height: 100%;
+}
+.feature-content2::after {
+  width: 100%;
+}
+.feature-content2::before {
+  height: 100%;
+}
+.feature-content2 {
+  background-color: #79bfff38;
 }
 .feature-content .main-title {
   margin-bottom: 0.5rem;
@@ -593,20 +658,6 @@ a {
   font-weight: 500;
 }
 
-.shape-img {
-  position: absolute;
-  font-size: 30rem;
-  /* color: #79beff3b; */
-  color: var(--light-con-color);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.count-box {
-  font-size: 2rem;
-  margin-bottom: 6.5rem;
-  padding: 1rem 1.5rem;
-}
 .section3 .sec-header p {
   justify-content: flex-start;
 }
@@ -615,14 +666,11 @@ a {
   display: block;
   color: #444;
   transition: var(--trans-duration);
-  /* padding: 0.1rem 0.15rem; */
   padding: 0.5rem;
   width: fit-content;
   position: relative;
   border-bottom: 1px solid #444;
   z-index: 30;
-  /* border-radius: 2rem; */
-  /* transform: skew(-15deg); */
 }
 .feature-content a::after,
 .sec3-content a::after {
@@ -643,7 +691,6 @@ a {
 .sec3-content a i {
   padding: 0.2rem;
   margin-left: 0.3rem;
-  /* border-radius: 50%; */
   transition: var(--trans-duration);
 }
 .feature-content a:hover,
@@ -724,10 +771,6 @@ a {
   color: #ffffff;
   transition: var(--trans-duration);
 }
-/* .inner-feature-icons .hov-trans-back {
-  position: relative;
-  transition: var(--trans-duration);
-} */
 .inner-feature-icons .ri-icon {
   position: relative;
   transition: var(--trans-duration);
@@ -879,7 +922,6 @@ a {
   left: 0;
   height: 100%;
   width: 20%;
-  /* background-color: var(--con-color); */
   border-radius: 0.25rem;
   transition: var(--trans-duration);
   transform: transition ease-in-out;
@@ -904,7 +946,6 @@ a {
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  background-image: radial-gradient(at top left, #139fce70 0%, #cb38ff00 43%);
 }
 .section4 h1 {
   font-size: 3rem;
@@ -990,13 +1031,8 @@ a {
   transform: rotate(360deg);
 }
 .section5 {
-  height: 100vh;
-  padding: 6rem 3rem;
-  background-image: radial-gradient(
-    at top right,
-    var(--light-con-color) 0%,
-    #0e719d00 100%
-  );
+  height: fit-content;
+  padding: 4rem 3rem;
 }
 .section5 .sec-header p,
 .service-slide h1 {
@@ -1026,9 +1062,6 @@ a {
   place-items: center;
   padding: 1rem;
 }
-/* .service-slide:hover .service-icon {
-  background-color: var(--con-color);
-} */
 .slider-content,
 .service-btn {
   display: flex;
@@ -1118,14 +1151,21 @@ a {
   transition: var(--trans-duration);
   padding: 3rem 2rem;
 }
+.service-section ul {
+  display: flex;
+  align-items: space-around;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
 .service-section ul li a {
   font-size: 1.1rem;
-  color: #444;
+  color: var(--con-color);
   margin: 2rem 0;
 }
 .service-section ul li {
   margin: 1rem 0;
-  border-bottom: 1px solid #7f78731e;
+
+  border-bottom: 1px solid #0e729d38;
 }
 
 .deactivate-opc {
@@ -1133,26 +1173,24 @@ a {
   z-index: 0;
 }
 
-.service-section1 .img-container,
-.service-section1,
-.service-section1 .supply-contact {
+.service-section .img-container,
+.service-section,
+.service-section .supply-contact {
   display: flex;
 }
-.service-section1 {
+.service-section {
   justify-content: space-between;
   z-index: 30;
+  background-image: url(img/dots-bg.webp);
+  background-size: cover;
 }
-.service-section1 .img-container {
-  background-image: -webkit-linear-gradient(
-    180deg,
-    #139fce 0%,
-    var(--con-color) 100%
-  );
+.service-section .img-container {
   height: fit-content;
   width: 36rem;
   justify-content: space-between;
+  border-radius: 0.5rem;
 }
-.service-section1 .supply-contact {
+.service-section .supply-contact {
   width: 22rem;
   height: 18.5rem;
   padding: 1rem;
@@ -1160,55 +1198,35 @@ a {
   align-items: center;
   justify-content: center;
 }
-.service-section1 .supply-contact i {
-  height: 4rem;
-  width: 4rem;
+.service-section .supply-contact i {
+  height: 5rem;
+  width: 5rem;
   display: grid;
   place-items: center;
   font-size: 2rem;
   border-radius: 50%;
   color: var(--main-bg);
-  /* color: var(--con-color); */
   margin-bottom: 2rem;
   position: relative;
   z-index: 30;
 }
-.service-section1 .supply-contact .circ-trans-back::after {
-  background-image: -webkit-linear-gradient(
-    180deg,
-    var(--main-bg) 0%,
-    var(--main-bg) 100%
-  );
-  z-index: 0; /* error that the icon under the pseudo code  */
+.service-section .circ-trans-back::after {
+  width: 100%;
+  height: 100%;
 }
-.service-section1.circ-trans-back i {
+.service-section .supply-contact .second-h1 {
   color: var(--con-color);
 }
-.service-section1 .supply-contact .second-h1 {
-  color: var(--main-bg);
-}
-.service-section1 .img-container img {
+.service-section .img-container img {
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%, 0 50%);
 }
-.service-section1 .img-container img {
+.service-section .img-container img {
   filter: brightness(100%) contrast(100%) saturate(0%);
 }
-/*
-.service-section2 {
-  background-color: blue;
+.section6 {
+  width: 100%;
+  height: 100vh;
 }
-.service-section3 {
-  background-color: green;
-}
-.service-section4 {
-  background-color: blueviolet;
-}
-.service-section5 {
-  background-color: rosybrown;
-}
-.service-section6 {
-  background-color: skyblue;
-} */
 @media (max-width: 950px) {
   nav {
     padding: 0 2rem;
@@ -1267,7 +1285,7 @@ a {
     padding: 3rem 0;
   }
   .feature-shape {
-    margin: 6rem 4rem 5rem 0rem;
+    margin-bottom: 2rem;
   }
   .features-shapes {
     /* display: flex; */
@@ -1301,12 +1319,19 @@ a {
   .services-sections-content {
     width: 45rem;
   }
-  .service-section1 {
+  .services-sections-content {
+    height: 35rem;
+  }
+  .service-section {
     flex-direction: column;
   }
-  .service-section1 .img-container {
+  .service-section .img-container {
     width: 100%;
     margin-top: 2rem;
+    border: 1px solid var(--main-bg);
+  }
+  .service-section ul {
+    display: block;
   }
 }
 @media (min-width: 1000px) {
