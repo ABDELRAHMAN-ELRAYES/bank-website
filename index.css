@@ -45,10 +45,11 @@ body {
   background: var(--con-color);
   border-radius: 10px;
 }
-
-.section1 {
+section {
   width: 100%;
   height: 100vh;
+}
+.section1 {
   background-color: var(--main-bg);
   display: flex;
   flex-direction: column;
@@ -945,7 +946,6 @@ a {
 }
 
 .section4 {
-  height: 100vh;
   padding: 4rem 3rem;
   display: flex;
   justify-content: center;
@@ -1233,11 +1233,8 @@ a {
 }
 .section6 {
   width: 100%;
-  height: 100vh;
+  height: fit-content;
   padding: 4rem 3rem;
-}
-.section6 .sec-header {
-  margin-top: 3rem;
 }
 .section6 .sec-container {
   display: flex;
@@ -1285,8 +1282,8 @@ a {
 .read-btn::after {
   content: "";
   position: absolute;
-  width: 0;
-  height: 100%;
+  height: 0;
+  width: 100%;
 
   background-image: -webkit-linear-gradient(
     180deg,
@@ -1294,7 +1291,7 @@ a {
     var(--con-color) 100%
   );
   transition: var(--trans-duration);
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 0;
   border-radius: 1.5rem;
@@ -1304,7 +1301,7 @@ a {
 }
 .read-btn:hover::after,
 .credit-btn:hover::after {
-  width: 100%;
+  height: 100%;
 }
 
 .credit-btn a,
@@ -1318,6 +1315,123 @@ a {
   height: 100%;
   display: grid;
   place-items: center;
+}
+.section7 {
+  height: 50rem;
+  position: relative;
+  height: fit-content;
+}
+.section7::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(/img/concurrency-statistics.jpg);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  filter: brightness(100%) contrast(100%) saturate(0%) blur(0.25rem);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.sec-overlay {
+  width: 100%;
+  height: 63rem;
+  padding: 4rem 15rem;
+}
+.section7 .sec-header h1,
+.sec7-btns .right-btn a {
+  color: var(--main-bg);
+}
+.sec7-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.sec7-btns .btn {
+  background-color: transparent;
+  padding: 1rem 1rem;
+  color: var(--main-bg);
+  text-align: center;
+  height: 4rem;
+}
+.sec7-btns .right-btn i {
+  font-size: 1.5rem;
+  color: var(--con-color);
+}
+.left-btns {
+  display: flex;
+}
+.clicked-btn,
+.another-clicked-btn {
+  position: relative;
+}
+.clicked-btn::before,
+.clicked-btn::after,
+.another-clicked-btn::after,
+.another-clicked-btn::before {
+  content: "";
+  position: absolute;
+  transition: var(--trans-duration);
+  background-color: var(--con-color);
+  z-index: 30;
+}
+.clicked-btn::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+}
+.clicked-btn::after {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+}
+.clicked-btn:hover::before {
+  width: 100%;
+}
+.clicked-btn:hover::after {
+  width: 0;
+}
+.another-clicked-btn::before {
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+}
+.another-clicked-btn::after {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 0;
+}
+.another-clicked-btn:hover::before {
+  height: 0;
+}
+.another-clicked-btn:hover::after {
+  height: 97%;
+}
+.btn-class {
+  border: 0.1px solid var(--main-bg);
+  margin: 0 1rem;
+}
+.cards-container {
+  height: 35rem;
+  width: 89.25rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  column-gap: 3rem;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+}
+.cards-container .country-card {
+  /* width: 15.5rem; */
+  height: 16.5rem;
+  background-color: red;
 }
 @media (max-width: 950px) {
   nav {
@@ -1431,6 +1545,21 @@ a {
   .section6 .sec-content {
     margin-left: 0;
     padding-top: 0;
+  }
+  .section7::after {
+    background-position: right;
+  }
+  .sec-overlay {
+    padding: 4rem 3rem;
+  }
+  .sec7-btns .right-btn {
+    display: none;
+  }
+  .cards-container {
+    width: 52.3rem;
+    column-gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 @media (min-width: 1000px) {
