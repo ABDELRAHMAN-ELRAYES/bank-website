@@ -280,3 +280,24 @@ featuresShapes.addEventListener("mouseout", event => {
     middleElementContent.classList.add("feature-content2");
   }
 });
+/* <-------------------------------------------------------------------------------> */
+let sendReceiveBtn = document.querySelector(".send-receive-money");
+let loadRedeemBtn = document.querySelector(".load-redeem-card");
+
+let statesContainerOne = document.querySelector(".cards-container1");
+let statesContainerTwo = document.querySelector(".cards-container2");
+
+sendReceiveBtn.addEventListener("click", () => {
+  statesContainerOne.style.display = "grid";
+  statesContainerTwo.style.display = "none";
+
+  sendReceiveBtn.classList.add("clicked-btn");
+  loadRedeemBtn.classList.remove("clicked-btn");
+});
+loadRedeemBtn.addEventListener("click", () => {
+  statesContainerOne.style.display = "none";
+  statesContainerTwo.style.display = "grid";
+
+  loadRedeemBtn.classList.add("clicked-btn");
+  sendReceiveBtn.classList.remove("clicked-btn");
+});

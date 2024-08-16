@@ -1342,7 +1342,7 @@ a {
 }
 .sec-overlay {
   width: 100%;
-  height: 63rem;
+  height: fit-content;
   padding: 4rem 15rem;
 }
 .section7 .sec-header h1,
@@ -1371,6 +1371,7 @@ a {
 .clicked-btn,
 .another-clicked-btn {
   position: relative;
+  border: none;
 }
 .clicked-btn::before,
 .clicked-btn::after,
@@ -1423,11 +1424,9 @@ a {
   margin: 0 1rem;
 }
 .cards-container {
-  height: 35rem;
+  height: fit-content;
   width: 89.25rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 3rem 0;
   display: grid;
   column-gap: 3rem;
   grid-template-columns: repeat(6, 1fr);
@@ -1463,12 +1462,12 @@ a {
   color: #b8b4b1;
 }
 .country-card .send span {
-  margin-left: 3rem;
-  margin-right: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .country-card .receive span {
-  margin-left: 1.6rem;
-  margin-right: 4rem;
+  margin-left: 0.6rem;
+  margin-right: 2rem;
 }
 .country-card .receive {
   border-top: 0.1px solid #fff3;
@@ -1597,7 +1596,7 @@ a {
   }
   .cards-container {
     width: 52.3rem;
-    column-gap: 3rem;
+    gap: 3rem;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
